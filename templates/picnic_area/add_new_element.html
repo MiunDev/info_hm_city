@@ -1,0 +1,41 @@
+{% extends "picnic_area/base.html" %}
+{% block header %} bg1 {% endblock header %}
+{% block add_new_element %}
+    <main class="container">
+        <h1>Здесь вы можете предложить информацию об интересном месте в городе</h1>
+        <form action="" method="post" class="mt-4" id="formAddNewElement">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Наименование места</label><sup
+                    style="color: red">*</sup>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Наименование места"
+                       required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Обслуживающая организация (Организатор мероприятия)</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Обслуживающая организация">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Номер телефона организации (Организатора мероприятия)</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Адрес</label><sup style="color: red">*</sup>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Пример: 89821112233"
+                       required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Описание</label><sup
+                    style="color: red">*</sup>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Добавьте изображение места</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+            <button type="submit"
+                    class="mt-3 btn btn-info btn-block py-3">Отправить
+            </button>
+        </form>
+    </main>
+{% endblock add_new_element %}

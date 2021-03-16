@@ -1,0 +1,36 @@
+{% extends "picnic_area/base.html" %}
+{% block header %} bg1 {% endblock header %}
+{% block picnic_area %}
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Места для пикника в Ханты-Мансийске</h1>
+            <p class="lead my-3">Здесь вы можете найти информацию о том, где провести хорошо вечер, с шашлышком,
+                качелями и красивым видом</p>
+            <p class="lead mb-0"><a href="http://127.0.0.1:8000/add_new_element/" class="text-blue fw-bold">Вы можете предложить свои варианты...</a></p>
+        </div>
+    </div>
+    {% for info in picnic_areas %}
+        <div class="row mb-2">
+            <div class="col-md-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ info.name }}</h3>
+                        <div class="mb-3 ml-3 text-muted" style="font-size: 12px;">Последнее обновление
+                            данных: {{ info.date_update|date:'Y-m-d H:i' }}</div>
+                        <div class="mb-1 text-muted"><b>Обслуживающая организация:</b> {{ info.service_provider }}</div>
+                        <div class="mb-1 text-muted"><b>Номер телефона организации:</b> {{ info.phone }}</div>
+                        <div class="mb-1 text-muted"><b>Адрес:</b> {{ info.address }}</div>
+                        <p class="card-text mb-auto">{{ info.description }}</p>
+                        <a href="#" class="stretched-link">Посмотреть на карте...</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{{ info.photo.url }}" class="img-fluid m-3" width="250" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+</main>
+{% endblock picnic_area %}

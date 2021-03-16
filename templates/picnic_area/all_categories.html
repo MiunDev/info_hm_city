@@ -1,0 +1,22 @@
+{% extends "picnic_area/base.html" %}
+{% block header %} bg1 {% endblock header %}
+{% block categories %}
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+                <div class="col">
+                    <div class="row">
+                        <a href="#">
+                            {% if category.icon %}
+                                <img src="{{ category.icon.url }}" class="img-fluid m-3" alt="">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="row">
+                        {{ category.name }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
